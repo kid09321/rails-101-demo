@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 	before_action :find_group
 	before_action :authenticate_user!
 	before_action :member_required, only: [:new, :create]
+
 	def new
 		@post = @group.posts.new
 	end
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
 	  @post = current_user.posts.find(params[:id])
       @post.destroy
       redirect_to group_path(@group), alert: "刪除文章成功"
-   
+
   end
 
 	private

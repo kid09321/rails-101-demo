@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'groups#index'
-  namespace :account do 
+  namespace :account do
     resources :groups
     resources :posts
   end
@@ -9,7 +9,9 @@ Rails.application.routes.draw do
       post :join
       post :quit
     end
-    resources :posts 
+    resources :posts
+
+
 
   end
   devise_for :users

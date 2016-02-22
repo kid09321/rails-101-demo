@@ -1,6 +1,7 @@
 class GroupsController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
-	def index 
+
+	def index
 		@group = Group.all
 	end
 
@@ -48,7 +49,7 @@ class GroupsController < ApplicationController
 		@group = Group.find(params[:id])
 		if !current_user.is_member_of?(@group)
 			current_user.join!(@group)
-			flash[:notice] = "加入討論版成功"			
+			flash[:notice] = "加入討論版成功"
 		else
 			flash[:warning] = "你已經是本討論版成員了"
 		end
